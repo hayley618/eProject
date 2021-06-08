@@ -2,7 +2,8 @@ import pytest
 import yaml
 import Calculator
 
-data = yaml.safe_load(open("./data_cal.yaml"))
+data = yaml.safe_load(open("../datas/data_cal.yaml"))
+
 
 class TestCal:
 
@@ -14,6 +15,8 @@ class TestCal:
 
     def teardown_class(self):
         print("计算结束")
+
+
     # 相加
     @pytest.mark.parametrize('a,b,expect', data["add"])
     def test_add(self, a, b, expect):
@@ -44,3 +47,4 @@ class TestCal:
         result = self.cal.multi(a, b)
         assert expect == round(result, 2)
         print("a*b=", result)
+
