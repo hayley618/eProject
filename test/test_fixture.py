@@ -1,7 +1,7 @@
 from test import Calculator
 import pytest
 
-@pytest.fixture(params = [[1,1,2],[0,0,0],[0.1,-0.1,0]],ids=['int1','zero','float'])
+@pytest.fixture(params = [[1,1,2],[0,0,0],[0.1,-0.1,0]],ids=['整型','零','浮点数'])
 def get_add_datas(request):
     return request.param
 
