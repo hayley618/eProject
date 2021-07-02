@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant 企业微信主页面 as main
+
+participant 通讯录页面 as contact
+
+participant 添加成员页面 as add_member
+
+participant 添加部门弹窗 as add_dep
+
+participant 设置部门弹窗 as set_dep
+
+main -> contact: 点击通讯录按钮
+main -> add_member: 点击添加成员按钮
+add_member -> add_member: 添加成员操作
+add_member -> contact: 1. 填写人员信息 \n 2.点击保存
+contact -> add_member:点击添加成员按钮
+contact -> add_dep:点击添加部门
+contact -> set_dep :1.选择人员 \n 2.点击设置部门
+contact -> contact: 获取成员列表
+add_dep -> add_dep: 添加部门操作
+add_dep --> contact: 跳转至通讯录页面
+set_dep -> set_dep: 设置部门操作
+set_dep --> contact: 跳转到通讯录页面
+@enduml
